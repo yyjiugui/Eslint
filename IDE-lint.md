@@ -24,30 +24,17 @@
 
   2. 使用VSCode打开项目，点击VSCode右侧工具栏中的扩展选项，搜索eslint，点击安装
 
-     <img src="./img/tool1.png">
-
   3. 安装完成后重新打开VSCode即可在编写js代码时实时检测不符合规范的写法，并给出标红提示
 
-     <img src="./img/tool2.png">
-
-     
+  
 
 - 一键格式化功能配置：
 
   1. 使用VSCode打开项目，点击VSCode右侧工具栏中的扩展选项，搜索prettier，点击安装
 
-     <img src="./img/tool3.png">
-
   2. 重新打开项目找到需要格式化的文件，右键选择格式化文档（快捷键：Shift+Alt+F)，即可一键解决代码中的空格、逗号、引号、单行长度等格式问题
  
-     <img src="./img/tool1.png">
-
-
 - 温馨提示：以上工具的使用需要在项目的根目录中有`.eslintrc.js`和`.prettierrc`文件，如果使用fish-cli创建的项目中都会自动生成这两个文件，当然如果你已经按照上面的工具安装了fish-cli并且使用的`fish lint`命令对项目进行了检测，这时也会在你相应的目录中生成这两个文件，具体文件内容如下，请确保你的文件与此相同：
-
-     <img src="./img/tool4.png">
-
-     <img src="./img/tool5.png">
 
 
 
