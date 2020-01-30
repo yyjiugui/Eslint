@@ -1,0 +1,16 @@
+.layout {
+  color: red;
+}
+
+.home {
+  position: relative;
+}
+
+.layout-test {
+  color: red;
+}
+
+.home-layout {
+  position: relative;
+  border: 1px solid red;
+}
