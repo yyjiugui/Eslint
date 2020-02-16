@@ -19,33 +19,36 @@
 		有一些babel语法没有被eslint支持，使用 babel-eslint是导出一个解析器可以支持的index.js文件
 		总的来说babel-eslint就是将不能被常规linter解析的代码转换为能被常规解析的代码。
 		想要eslint处理vue单文件组件，必须要安装一个插件 eslint-plaus-html 并且配置。
+
+		注意: 安装 eslint-config-standard 根据报错提示 还要安装一系列的eslint插件
 		*/
 
 // 定义变量必须使用
-let a = 10
+const a = 10
 console.log(a)
 
 // 结尾逗号
-let b = { name: 'zs', age: 30 }
+const b = { name: 'zs', age: 30 }
 console.log(b)
 
-let c = [1, 2, 3]
+const c = [1, 2, 3]
 console.log(c)
 // 使用单引号
-let d = 'hello world'
+const d = 'hello world'
 console.log(d)
 // 结束语句不要使用分号
-let e = 100
+const e = 100
 console.log(e)
 
 // 禁止出现多行空行
-let f = 1000
+const f = 1000
 
 console.log(f)
 
-let g = 'hello world'
+const g = 'hello world'
 console.log(g)
 // 使用一个库 cross-env 运行跨平台设置和使用环境变量的脚本 npm install --save-dev cross-env
+// 测试eslint 的生产和开发环境开启 debugger和console模式校验
 /*
 	在npm脚本中使用了它：
 
@@ -55,5 +58,4 @@ console.log(g)
   }
 }
 */
-
 // console.log(process.env.NODE_ENV)
