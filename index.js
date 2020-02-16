@@ -21,6 +21,7 @@
 		想要eslint处理vue单文件组件，必须要安装一个插件 eslint-plaus-html 并且配置。
 
 		注意: 安装 eslint-config-standard 根据报错提示 还要安装一系列的eslint插件
+		使用Vue的cli安装standard有一个包是 @vue-config-standrad 也要安装一系列插件
 		*/
 
 // 定义变量必须使用
