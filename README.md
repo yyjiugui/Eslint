@@ -1,6 +1,88 @@
-# 5-2 项目质量监测
+# 项目质量监测
 
-## 课程介绍
+```javascript
+/*
+    Eslint的使用 和stylelint的使用
+    使用建议: 建议不要全局安装eslint
+    1: npm install eslint --save-dev
+    2: npx eslint init 初始化eslint配置 生成一个配置文件 .eslintrc.js文件  等同于./node_modules/.bin/eslint --init
+    3: 运行 npx eslint xxx.js文件
+
+    安装 eslint  npm install eslint -d
+    安装eslint的规则包一般使用standard标准规则包。
+
+    Eslint配置
+
+    默认情况下，ESLint 会在所有父级目录里寻找配置文件，一直到根目录。
+    ESLint 一旦发现配置文件中有 "root": true，它就会停止在父级目录中寻找。
+    process.env 处理环境 es6 commonjs node
+    rules: [] 配置eslint校验规则
+
+    babel-eslint的作用:
+    有一些babel语法没有被eslint支持，使用 babel-eslint是导出一个解析器可以支持的index.js文件
+    总的来说babel-eslint就是将不能被常规linter解析的代码转换为能被常规解析的代码。
+    想要eslint处理vue单文件组件，必须要安装一个插件 eslint-plaus-html 并且配置。
+
+    注意: 安装 eslint-config-standard 根据报错提示 还要安装一系列的eslint插件
+    使用Vue的cli安装standard有一个包是 @vue-config-standrad 也要安装一系列插件
+*/
+```
+
+```javascript
+/*
+一、cross-env库 运行跨平台设置和使用环境变量的脚本
+
+二、npm install --save-dev cross-env
+
+测试eslint 的生产和开发环境开启 debugger和console模式校验
+
+在npm脚本中使用了它：
+
+{
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js"
+  }
+}
+
+*/
+console.log('当前的环境是: ', process.env.NODE_ENV)
+```
+
+# <a name="ide">IDE工具配置</a>
+
+  Visual Studio Code (简称 VSCode / VSC) 是一款免费开源的现代化轻量级代码编辑器，软件跨平台支持 Win、Mac 以及 Linux，运行流畅，并且为我们提供了丰富的扩展工具，推荐使用它作为我们前端开发的工具，接下来我们将介绍如何在VSCode内配置实时检测和一键格式化的功能。
+
+### Code Specification
+-  Javascript语言编码规范
+
+### Tools
+- editorconfig  负责编辑器统一配置
+- eslint 负责静态检查
+- prettier 负责格式化
+
+- 实时检测功能配置步骤：
+
+  1. 首先需要进入命令行工具（cmd）全局安装`fish`的`eslint`规则包，使用如下命令：
+
+    ```shell
+        $ npm i -g @ztesoft/eslint-config  --registry http://registry.npm.ztesoft.com
+    ```
+
+  2. 使用VSCode打开项目，点击VSCode右侧工具栏中的扩展选项，搜索eslint，点击安装
+
+  3. 安装完成后重新打开VSCode即可在编写js代码时实时检测不符合规范的写法，并给出标红提示
+
+
+
+- 一键格式化功能配置：
+
+  1. 使用VSCode打开项目，点击VSCode右侧工具栏中的扩展选项，搜索prettier，点击安装
+
+  2. 重新打开项目找到需要格式化的文件，右键选择格式化文档（快捷键：Shift+Alt+F)，即可一键解决代码中的空格、逗号、引号、单行长度等格式问题
+
+- 温馨提示：以上工具的使用需要在项目的根目录中有`.eslintrc.js`和`.prettierrc`文件，如果使用fish-cli创建的项目中都会自动生成这两个文件，当然如果你已经按照上面的工具安装了fish-cli并且使用的`fish lint`命令对项目进行了检测，这时也会在你相应的目录中生成这两个文件，具体文件内容如下，请确保你的文件与此相同
+
+## Eslint学习 前言介绍
 
 没有规矩不成方圆，所以我们写代码也要有"规矩"，但是我们通常记不住所有的"规矩"，因为人嘛，不可能不犯错。但是，这难不到我们程序员，我们让机器、代码、程序帮我们搞定，让它们来帮我们进行代码质量检查，以便提高的程序的健壮性。
 
@@ -25,19 +107,19 @@
 
 如何让一个团队的人产出的代码都在一个基本水平底线之上呢？最初是靠制订规范。要确保规范得以执行只能靠人，所以文字规范成了 code review 的公共参照标准。**单纯靠人的事最终都容易流于形式，所以需要工具加以保证。**虽说工具并不能完全实现规范中的规则，但至少能够在一定程度上缓解代码不统一的局面。
 
-**本课程的学习路径：**
+**本学习的学习路径：**
 
 - Why
 - What
 - How
 
-**本课程的主要内容：**
+**本学习的主要内容：**
 
 代码质量监测包括：代码规范（代码编写层面）、功能实现（测试层面）、Code Review（团队协作层面）。
 
-本课程，代码规范作为展开，以 eslint 为例子；代码质量中的功能实现，以 e2e test 为例子。
+本学习，代码规范作为展开，以 eslint 为例子；代码质量中的功能实现，以 e2e test 为例子。
 
-关于，功能实现中的单元测试，5-3 课程中有具体的框架使用及介绍。
+关于，功能实现中的单元测试，5-3 学习中有具体的框架使用及介绍。
 
 - 代码 Lint——告别低级代码错误，简单的配置让程序来自动检查
 - e2e test——了解什么是黑盒测试，如何进行 e2e test，即 End to End Test，端到端的测试。
@@ -49,7 +131,7 @@
 
 第二个徽章是 [codecov.io](https://codecov.io/)（单测覆盖率统计平台），接入过程也很简单，也是不同语言选择不同的[配置文件](https://docs.codecov.io/docs/supported-languages)，codecov 可以无缝衔接 travis-ci，只需要在原来的配置文件上稍作修改即可，核心就是生成单测的结果文件。\
 
-**本课程的学习准备：**
+**本学习的学习准备：**
 
 - IDE vscode，node > 10.15
 - 包管理工具：yarn, cnpm
